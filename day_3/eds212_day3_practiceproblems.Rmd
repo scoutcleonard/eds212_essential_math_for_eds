@@ -1,0 +1,29 @@
+---
+title: 'Day 3 Practice Problems: Coding Practice'
+author: "Scout Leonard"
+date: "8/4/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Part 2: Coding Practice
+```{r}
+vec_a <- c(1,6)
+
+vec_b <- c(2,4)
+
+#Checking by-hand solutions in R
+vec_a + vec_b
+
+vec_b - vec_a
+
+4 * vec_a
+
+vec_a %*% vec_b
+```
+
+##Part 3: Fork & Clone a repo, use the code

@@ -1,0 +1,101 @@
+---
+title: "Day1_InteractiveSession2"
+author: "Scout Leonard"
+date: "8/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+### Logs and exponents in R
+
+Some examples of using the `log()` function and the `exp()` **function** in R.
+
+*Command + Option + "I" is the keyboard shortcut for inserting a code chunk.*
+
+```{r}
+# Examples of logarithms 
+
+log(4)
+
+#Example of exponents
+
+exp(5)
+
+log(exp(1))
+```
+
+
+### Creating Sequences of Values 
+
+```{r}
+# A sequence from 1 to 20, by increments of 1 
+
+ex_1 <- seq(from= 1, to =20, by = 20)
+
+#Vector from 0 to 40 by increments of 0.2
+
+ex_2 <- seq(from= 0, to = 40, by = 0.2)
+
+#vector from 0 to 5000 by increments of 10
+
+ex_3 <- seq(from =0, to= 5000, by = 10)
+```
+
+### Create a Function for Logistic Growth 
+
+Given the carrying capacity, the initial population, the growth rate,and a time, use the logistic growth model to estimate the population at that time. 
+
+```{r}
+pop_logistic <- function(capacity, init_pop, rate, time_yr) {
+  
+  capacity / ( 1 + ((capacity - init_pop)/ init_pop) * exp(-rate*time_yr))
+  
+  
+}
+
+pop_logistic(capacity = 2580, init_pop = 230, rate = 0.32, time_yr = 2.4)
+```
+
+
+### Try finding the population over a sequence of times 
+
+```{r}
+
+#Create a vector of times from 0 to 20 by increments of 0.5
+
+time_vec <- seq(from =0, to = 15, by = 0.5)
+
+```
+
+# Now let's estimate the population over that range of times, given capacity = 2580, initial population = 230, rate = 0.32. 
+
+```{r}
+chipmunk_pop <- pop_logistic(capacity = 3000, init_pop = 230, rate = 0.32, time_yr = time_vec)
+```
+
+### Create a dataframe and plot chipmunk population over time 
+
+```{r}
+
+chipmunk_df <- data.frame(time_vec, chipmunk_pop)
+
+chipmunk_df
+```
+
+
+#### Create a bare minimum ggplot graph: 
+
+```{r}
+ggplot(data = chipmunk_df, aes(x = time_vec, y = chipmunk_pop)) + 
+  geom_point() + 
+  labs(x = "Time (years)",
+       y = "Chipmunk population (individuals)",
+       title = "Inyo NF chipmunks",
+       subtitle = "yay chipmunks")
+```
+

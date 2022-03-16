@@ -1,0 +1,27 @@
+---
+title: "Day 1 Computation Session 1"
+author: "Scout Leonard"
+date: "8/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Largest Header
+
+## A little smaller 
+
+### A little smaller 
+
+*this is italicized*
+
+**this is bold**
+
+```{r}
+teddy <- 10
+
+teddy
+```
+

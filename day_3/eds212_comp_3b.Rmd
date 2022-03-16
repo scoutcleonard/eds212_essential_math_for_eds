@@ -1,0 +1,58 @@
+---
+title: "Vectors In R"
+author: "Scout Leonard"
+date: "8/4/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+# Create a Vector!
+vec_a <- c(4,5)
+
+```
+
+### Another code chunk 
+
+Anything you set in a code chunk's header overrides the global options. 
+
+```{r, echo=FALSE}
+vec_b <- c(-3,10)
+```
+
+## Vector Addition 
+
+```{r}
+vec_c <- vec_a + vec_b
+```
+
+## Vector Subtraction
+
+```{r}
+# vec_d is vec_b - -vec_a
+
+vec_d <- vec_b - vec_a
+```
+
+
+## Vector Scalar Multiplier
+
+```{r}
+# what is vec_e is it is 4 * vec_b
+vec_e <- 4 * vec_b
+```
+
+## If Dot Product were asterisk
+It's NOT the dot product. Dot product has a weird symbol: %*% See below. 
+
+```{r}
+vec_a * vec_b
+
+vec_a %*% vec_b
+```
+
+

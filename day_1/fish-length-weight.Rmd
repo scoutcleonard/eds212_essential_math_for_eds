@@ -1,0 +1,70 @@
+---
+title: "Practice_Problems_Day1"
+author: "Scout Leonard"
+date: "8/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+#Headers of varying size
+
+##Headers of varying size 
+
+###Headers of varying size 
+
+**Bold**
+
+superscript^2^
+
+subscript~2~
+
+*Bullet Points*
+* Item 1
+* Item 2
+* Item 3
+
+
+
+
+
+```{r}
+
+fish_stand_wt <- function(a, b, L){
+  
+  a*(L^b)
+}
+
+# milk fish
+fish_stand_wt(a = 0.0905, b = 2.52, L = 60)
+
+# giant trevally
+fish_stand_wt(a = 0.0353, b = 3.05, L = 60)
+
+# great barracuda
+fish_stand_wt(a = 0.0181, b = 3.27, L = 60)
+
+```
+
+```{r}
+fish_length <- seq(from =0, to =200, by = 1)
+
+barracuda_wt <- fish_stand_wt(a = 0.0181, b = 3.27, L = fish_length)
+
+fish_df <- data.frame(fish_length, barracuda_wt)
+
+```
+
+
+```{r}
+ggplot(data = fish_df, aes( x = fish_length, y = barracuda_wt)) +
+         geom_point() +
+         labs(x = "Fish length (cm)",
+              y = "Barracuda weight (g)",
+              title = "Fish Stats")
+```
+

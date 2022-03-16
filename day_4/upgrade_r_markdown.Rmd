@@ -1,0 +1,45 @@
+---
+title: "My Fancy RMD"
+subtitle: "Some Changes in YAML" 
+author: "Scout Leonard"
+output: 
+  html_document:
+    theme: journal
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Getting started
+## My first chapter
+
+### Preface
+
+Something awesome 
+
+```{r}
+hi <- 10
+
+hello <- 3
+
+how_are_u <- hi + hello
+```
+
+## My second chapter 
+
+### a note 
+
+```{r}
+how_are_u
+```
+
+## My first chapter
+
+### hi evrybody!!
+
+blah blah blah

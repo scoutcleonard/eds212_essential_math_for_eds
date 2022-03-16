@@ -1,0 +1,109 @@
+---
+title: "session_2b"
+author: "Scout Leonard"
+date: "8/3/2021"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+
+## Plot a function in `ggplot2`
+
+```{r}
+eq <- function(x) {
+  
+  3 * x ^ 2 + 4
+  
+}
+
+
+# Use stat_function() 
+
+ggplot(data = data.frame(x = c(1,100)), aes(x = x)) + 
+  stat_function(fun = eq)
+```
+
+
+### Task 
+
+Plot $f(x)=2.4-5x^3+2.1x^2$
+
+Plot over a range of -50 to 50. 
+
+```{r}
+eq <- function(x) {
+  
+  2.4 - 5*x^3 + 2.1*x^2
+}
+
+ggplot(data = data.frame(x = c(-50,50)), aes(x=x)) +
+  stat_function(fun = eq)
+
+
+```
+
+
+### `penguins` body mass and flipper length 
+
+Basic ggplot scatter plot of body mass (y) and flipper length (x) 
+
+```{r}
+#tell r you're using ggplot and the penguins data frame
+#geompoint() says make a scatter plot
+
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species)) +
+  scale_color_manual(values = c("red", "purple", "blue")) + 
+  labs(x = "Flipper lengths (mm)",
+       y = "Body Mass (g)",
+       title = "Palmer penguins size measurements",
+       caption = "Data collected by KB Gorman et al. at Palmer Station",
+       color = "Species") +
+  facet_wrap(~island) +
+  theme_gray()
+
+# Facet wrap separates data into separate graphs based on defined facet
+# There are a number of themes that pop up when you type theme! 
+#Changing something based on a variable happens within aes(), like species
+
+# Command +
+#   Shift +
+#   C to comment out multiple lines 
+
+```
+
+### Higher order derivative 
+```{r}
+gt <- expression(2.2 + 3.1 * t - 5.6 * t ^4)
+dg_dt <- D(expr = gt, 't')
+```
+
+```{r}
+d2g_dt2 <- D(expr = dg_dt, 't')
+d2g_dt2
+```
+
+## Partial derivatives
+
+```{r}
+f_xyz <- expression(2*x*y - 3*(x^2) * z^3)
+
+#Find each partial for this function 
+
+df_dx <- D(expr = f_xyz, 'x')
+df_dx
+
+df_dy <- D(expr = f_xyz, 'y')
+df_dy
+
+df_dz <- D(expr = f_xyz, 'z')
+df_dz
+```
+

@@ -1,0 +1,71 @@
+---
+title: "eds212_day_2_interactive_2a"
+author: "Scout Leonard"
+date: "8/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Derivatives in R 
+
+"expression" defines the function for R 
+
+```{r}
+fx <- expression(x^2)
+
+df_dx <- D(expr = fx, name = 'x')
+
+df_dx
+
+#Evaluate the slop of f(x) at x = 831
+
+x <- 831
+
+eval(expr = df_dx)
+
+#Evaluate at a range of values of x 
+
+x <- seq(from = -10, to = 10, by = 0.5)
+
+eval(expr = df_dx)
+
+#This gives the slope of the function at a range of values, from -10 to 10 
+```
+
+```{r}
+#practice!
+
+gt <- expression(3 * t ^2 - 4 * cos(t))
+dg_dt <- D(expr = gt, name = 't')
+
+dg_dt
+```
+
+```{r}
+
+#practice!
+
+sl <- expression(sin(l))
+
+ds_dl <- D(expr = sl, name = 'l')
+
+ds_dl
+```
+
+```{r}
+ab <- expression(exp(b) * b ^ 3)
+
+da_db <- D(expr = ab, name = 'b')
+
+da_db
+
+# Evaluate the slope of a(b) at b = 4
+
+b <- 4
+
+eval(expr = da_db)
+```
+
